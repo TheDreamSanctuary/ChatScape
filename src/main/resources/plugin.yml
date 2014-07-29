@@ -1,0 +1,85 @@
+name: DreamTools
+main: com.thedreamsanctuary.dreamtools.DreamTools
+version: ${project.version}
+author: xRezel
+depend: [Vault]
+commands:
+
+   togglegl:
+     description: Toggles Group list on and off while in private mode
+     aliases: [togglegl]
+     permission: dreamtools.togglegl
+     usage:
+     
+   togglewl:
+     description: Toggles whisper list on and off while in private mode
+     aliases: [togglewl]
+     permission: dreamtools.togglewl
+     usage:
+         
+   private:
+     description: Removes a tag from the tag list.
+     aliases: [private]
+     permission: dreamtools.private
+     usage:
+
+   public:
+     description: Sets your status to public and disables all chat filters. 
+     aliases: [public]
+     permission: dreamtools.public
+     usage:
+
+   wl:
+     description: Lists the players you currently have whisperlisted
+     aliases: [wl]
+     permission: dreamtools.wl
+
+   wladdcg:
+     description: Adds a player to custom group.
+     aliases: [wladdcg]
+     permission: dreamtools.gl
+
+   wladdg:
+     description: Adds a group to your whisper list
+     aliases: [wladdg]
+     permission: dreamtools.wladdg
+
+   wladdp:
+     description: Adds a custom player to your whisper list
+     aliases: [wladdp]
+     permission: dreamtools.wladdp
+     usage:
+
+   wlcreateg:
+     description: Creates a custom group for wl allowance.
+     aliases: [wlcreateg]
+     permission: dreamtools.wlcreateg
+             
+   wllist:
+     description: Lists all users in your whisperlist
+     aliases: [wllist]
+     permission: dreamtools.wllist
+
+   wllistcg:
+     description: lists all players in a custom group.
+     aliases: [wllistcg]
+     permission: dreamtools.wlremcq     
+
+   wlremcg:
+     description: Allows you either search by player or group.
+     aliases: [wlremcg]
+     permission: dreamtools.wlremcq
+       
+   wlremg:
+     description: Allows you either search by player or group.
+     aliases: [wlremg]
+     permission: dreamtools.wlremg
+     
+   wlremp:
+     description: Shows a list of all the tags.
+     aliases: [wlremp]
+     permission: dreamtools.wlremp
+     usage:
+
+
+ 
