@@ -75,7 +75,10 @@ public class OnCommand implements Listener
 					}
 					else
 					{
-						event.getPlayer().sendMessage(ChatColor.RED + "You cannot message this player because they are set to private");
+						if (i.getMessage().isEmpty())
+							event.getPlayer().sendMessage(ChatColor.RED + "You cannot message this player because they are set to private");
+						else
+							event.getPlayer().sendMessage(ChatColor.RED + i.getMessage());
 						event.setCancelled(true);
 					}
 				}
@@ -95,7 +98,11 @@ public class OnCommand implements Listener
 				}
 				else
 				{
-					event.getPlayer().sendMessage(ChatColor.RED + "You cannot message this player because they are set to private");
+					
+					if (i.getMessage().isEmpty())
+						event.getPlayer().sendMessage(ChatColor.RED + "You cannot message this player because they are set to private");
+					else
+						event.getPlayer().sendMessage(ChatColor.RED + i.getMessage());
 					event.setCancelled(true);
 				}
 			}
