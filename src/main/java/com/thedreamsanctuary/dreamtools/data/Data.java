@@ -16,10 +16,14 @@ public class Data
 
 	private String serVer = "1.0";
 	private static Map<String, Info> pInfo = new HashMap<String, Info>();
-	private static String DataLoc;
+	private static String dataLoc;
 	private static Chat chat;
 	private static Permission  perm;
 	private static String version;
+	private static String ConfigVer;
+	private static int WhisperLimit;
+	private static int GroupLimit;
+	private static int CustomError;
 
 	// PlayerData pd = new PlayerData();
 	// protected SerializedData sd = new SerializedData();
@@ -120,16 +124,6 @@ public class Data
 		}
 		return playerData;
 	}
-
-	public static String getDataLoc() 
-	{
-		return DataLoc;
-	}
-
-	public static void setDataLoc(String dataLoc) 
-	{
-		DataLoc = dataLoc;
-	}
 	public String getVer()
 	{
 		return this.serVer;
@@ -158,5 +152,45 @@ public class Data
 
 	public static void setVersion(String version) {
 		Data.version = version;
+	}
+
+	public static String getDataLoc() {
+		return dataLoc;
+	}
+
+	public static void setDataLoc(String dataLoc) {
+		Data.dataLoc = dataLoc;
+	}
+
+	public static String getConfigVer() {
+		return ConfigVer;
+	}
+
+	public static void setConfigVer(String configVer) {
+		ConfigVer = configVer;
+	}
+
+	public static int getWhisperLimit() {
+		return WhisperLimit;
+	}
+
+	public static void setWhisperLimit(int whisperLimit) {
+		WhisperLimit = whisperLimit;
+	}
+
+	public static int getGroupLimit() {
+		return GroupLimit;
+	}
+
+	public static void setGroupLimit(int groupLimit) {
+		GroupLimit = groupLimit;
+	}
+
+	public static int getCustomError() {
+		return CustomError;
+	}
+
+	public static void setCustomError(int customError) {
+		CustomError = customError;
 	}
 }
