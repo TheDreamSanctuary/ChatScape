@@ -14,6 +14,7 @@ import com.thedreamsanctuary.dreamtools.data.Info;
 
 public class Serialize extends Data 
 {
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	// Data d = new Data();
 
@@ -80,11 +81,6 @@ public class Serialize extends Data
 			ObjectInputStream in = new ObjectInputStream(inputStream);
 
 			Data.setData((Map<String, Info>) in.readObject());
-
-			if (Data.getData().isEmpty())
-				System.out.println("~~~~~~~~~~~~Is empty #2");
-			else
-				System.out.println("~~~~~~~~~~~~Is full #2");
 
 			in.close();
 			inputStream.close();
