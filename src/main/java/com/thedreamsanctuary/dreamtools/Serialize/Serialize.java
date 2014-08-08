@@ -8,6 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
+import org.bukkit.Bukkit;
+
+import com.thedreamsanctuary.dreamtools.configuration.Config;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 
@@ -18,28 +21,24 @@ public class Serialize extends Data
 	private static final long serialVersionUID = 1L;
 	// Data d = new Data();
 
-	private String pluginLoc;
-	private String dataLoc;
-
-	public void pluginData(String data) 
-	{
-		this.pluginLoc = data;
-		this.dataLoc = data + "/" + "DreamTools.ser"; 
-	}
-
 	public void checkData() 
 	{
 		try 
 		{
-			File loc = new File(pluginLoc);
-			File f = new File(dataLoc);
+			File loc = new File(Data.getDataLoc());
+			File f = new File(Data.getDataLoc());
 
 			if (!loc.isDirectory())
 				loc.mkdirs();
 
 			if (!f.exists())
+			{
+				if (Config.getSerializeVer() == Data.getConfigVer())
+					Bukkit.getLogger().warning("Serialize File is out of date");						
 				serializeList();
-		} catch (Exception e) {
+			}
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
@@ -52,7 +51,7 @@ public class Serialize extends Data
 
 		try 
 		{
-			outputStream = new FileOutputStream(dataLoc);
+			outputStream = new FileOutputStream(Data.getDataLoc() + "/DreamTools.ser");
 
 			ObjectOutputStream out = new ObjectOutputStream(outputStream);
 
@@ -77,7 +76,7 @@ public class Serialize extends Data
 		checkData();
 		try 
 		{
-			FileInputStream inputStream = new FileInputStream(dataLoc);
+			FileInputStream inputStream = new FileInputStream(Data.getDataLoc() + "/DreamTools.ser");
 			ObjectInputStream in = new ObjectInputStream(inputStream);
 
 			Data.setData((Map<String, Info>) in.readObject());
