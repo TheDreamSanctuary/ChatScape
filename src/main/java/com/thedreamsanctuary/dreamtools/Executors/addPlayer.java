@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 
 public class addPlayer implements Executor
@@ -42,16 +43,24 @@ public class addPlayer implements Executor
 						//checks to see if the player is currenly online, it also checks to see if the 
 						if (online.contains(player))
 						{
-							if (!i.getWhisperList().contains(s))
+							//Checks if player is contained on whisperlist
+							if (!i.getWhisperList().contains(player.getName()))
 							{
-								i.getWhisperList().add(s);
-								checkList.add(ChatColor.BLUE + s + "....." +  ChatColor.GREEN + "Succeeded");
-								
-								if (!i.isChatEnabled())
+								//Checks to see if they have reached limit or not
+								if (i.getWhisperList().size() <= Data.getWhisperLimit() )
 								{
-									player.showPlayer(i.getPlayer());
-									i.getPlayer().showPlayer(player);
-								}							
+									i.getWhisperList().add(player.getName());
+									checkList.add(ChatColor.BLUE + s + "....." +  ChatColor.GREEN + "Succeeded");
+								
+									//Sets the player visible both ways
+									if (!i.isChatEnabled())
+									{
+										player.showPlayer(i.getPlayer());
+										i.getPlayer().showPlayer(player);
+									}	
+								}
+								else
+									checkList.add(ChatColor.BLUE + s + ChatColor.WHITE + "....." +  ChatColor.RED + "Failed -Limit Reached");
 								
 							}
 							else
