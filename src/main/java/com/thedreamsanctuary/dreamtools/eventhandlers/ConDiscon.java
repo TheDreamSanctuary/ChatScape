@@ -28,7 +28,13 @@ public class ConDiscon implements Listener
 			
 			if (!i.isChatEnabled())
 			{
+			    if (Bukkit.getOnlinePlayers().contains(p))
+			    {
 				Bukkit.dispatchCommand(p, "/private");
+			    }
+			    else
+				Logger.logIt("player: " + sender.getName() + "is not currently logged into the server");
+				loginEvent.SetCancelled(true);
 			}
 		} catch (Exception e)
 		{
@@ -41,7 +47,10 @@ public class ConDiscon implements Listener
 		
 		if (!i.isChatEnabled())
 		{
-			Bukkit.dispatchCommand(logoutEvent.getPlayer(), "/private");
+			if (Bukkit.getOnlinePlayers().contains(i.getPlayerName())
+				Bukkit.dispatchCommand(logoutEvent.getPlayer(), "/private");
+			else
+				Logger.logit("Error user " + i.getPlayerName() + " is not currently logged in")
 		}
 		if (i.isWhisperEnabled() == false)
 		{
