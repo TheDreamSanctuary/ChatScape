@@ -7,15 +7,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import com.thedreamsanctuary.dreamtools.commands.Private;
 import com.thedreamsanctuary.dreamtools.configuration.Logger;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 
 public class ConDiscon implements Listener
 {
-	Private pr = new Private();
 	
 	@EventHandler
 	public void onConnectEvent(PlayerJoinEvent loginEvent)

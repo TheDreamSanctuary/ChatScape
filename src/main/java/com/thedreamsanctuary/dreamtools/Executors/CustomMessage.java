@@ -15,7 +15,7 @@ public class CustomMessage implements Executor
 
 	public void executor(Info i, String[] args) 
 	{
-		String msg = "";
+		String msg = " ";
 		ArrayList<String> arg = new ArrayList<String>(Arrays.asList(args));
 		arg.remove(0);
 		try

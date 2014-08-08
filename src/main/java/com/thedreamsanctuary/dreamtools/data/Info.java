@@ -22,6 +22,7 @@ public class Info implements Serializable //extends Data
 	private boolean groupIsEnabled = true;
 	private boolean isVanished = false;
 	private boolean isOverriding = false;
+	private String Message = " ";
 	
 	//returns player
 	public Player getPlayer() 
@@ -99,5 +100,11 @@ public class Info implements Serializable //extends Data
 		this.groupIsEnabled = groupEnabled;
 		
 	} */
+	public String getMessage() {
+		return Message;
+	}
+	public void setMessage(String message) {
+		Message = message;
+	}
 	
 }
