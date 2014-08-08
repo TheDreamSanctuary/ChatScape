@@ -51,25 +51,29 @@ public class ChatEventListener implements Listener
 		for (Player disPlayer : disList)
 		{
 			Info i = Data.getInfo(disPlayer);
+			Info j = Data.getInfo(player);
 			
 			if (i.getWhisperList().contains(player.getName()))
 			{
-				disPlayer.sendMessage(ChatColor.AQUA + "["+  ChatColor.WHITE + "WL" + ChatColor.AQUA +"]" + " " + player.getName()+  ": " + ChatColor.WHITE + event.getMessage());
+				disPlayer.sendMessage(ChatColor.DARK_GRAY + "["+  ChatColor.DARK_BLUE + "WL" + ChatColor.DARK_GRAY +"]" + " " + ChatColor.DARK_AQUA + player.getName()+  ": " + ChatColor.WHITE + event.getMessage());
 				executed = true;
 			}
 			if (i.isGroupEnabled() == true)
 			{
 				if (i.getGroupList().contains(Data.getPerm().getPrimaryGroup(disPlayer)) && executed != true)
-					disPlayer.sendMessage(ChatColor.AQUA + "[" + ChatColor.WHITE + "Group" + ChatColor.AQUA +"]" +  ChatColor.BLUE + " " +  player.getName() + ": " + ChatColor.WHITE + event.getMessage());
-			}
-				if (player.hasPermission("DreamTools.nodes.chatOverride"))
 				{
-					if ((i.isOverriding() == true) && (executed != true))
-					{
-						disPlayer.sendMessage(ChatColor.AQUA + "["+ ChatColor.LIGHT_PURPLE + Data.getPerm().getPrimaryGroup(player) + ChatColor.AQUA +"] " + ChatColor.WHITE + event.getMessage());
-					}
+					disPlayer.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_GREEN + "Group" + ChatColor.DARK_GRAY +"]" +  ChatColor.BLUE + " " +  player.getName() + ": " + ChatColor.WHITE + event.getMessage());
+					executed = true;
 				}
 			}
+			if (player.hasPermission("dreamTools.override"))
+			{
+				if ((j.isOverriding() == true) && (executed != true))
+				{
+						disPlayer.sendMessage(ChatColor.DARK_GRAY + "["+ ChatColor.DARK_PURPLE + player.getName() + ChatColor.GRAY +"] " + ChatColor.WHITE + event.getMessage());
+				}
+			}
+		}
 		
 		return false;
 	}

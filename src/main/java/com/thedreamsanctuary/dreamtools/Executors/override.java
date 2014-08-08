@@ -20,7 +20,7 @@ public class override implements Executor
 			if (i.isOverriding() == true)
 			{
 				i.setOverriding(false);
-				i.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Override is now" + ChatColor.RED + "Disabled");
+				i.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Override is now " + ChatColor.RED + "Disabled");
 				Logger.logIt("OverrideEnabled: " + i.getPlayer().getName(), "log");
 			}
 			else
@@ -38,7 +38,7 @@ public class override implements Executor
 
 	public String permNode() {
 		// TODO Auto-generated method stub
-		return null;
+		return "dreamTools.override";
 	}
 
 }
