@@ -3,6 +3,9 @@ package com.thedreamsanctuary.dreamtools.Executors;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.bukkit.ChatColor;
+
+import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 
 public class CustomMessage implements Executor
@@ -30,12 +33,18 @@ public class CustomMessage implements Executor
 						i.getPlayer().sendMessage("This user is currently set to private and cannot be whispered.");
 						
 				}
-				if (args.length >= 2)
+				if (arg.size() >= 2)
 				{
-					for (String s : arg)
-						 msg += s;
+					if (arg.size() <= Data.getCustomError())
+					{
+						for (String s : arg)
+							 msg += s;
+						i.setMessage(msg);
+					}
+					else
+						i.getPlayer().sendMessage(ChatColor.RED + "Error word limit reached!");
 					
-					i.setMessage(msg);
+					
 				}
 			}
 		} catch (Exception e)

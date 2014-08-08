@@ -34,8 +34,13 @@ public class addGroup  implements Executor
 					{
 						if (!i.getGroupList().contains(s))
 						{
-							i.getGroupList().add(s);
-							checkList.add(ChatColor.DARK_RED + s + ChatColor.WHITE + "....." + ChatColor.GREEN + "Success");
+							if (i.getGroupList().size() <= Data.getGroupLimit())
+							{
+								i.getGroupList().add(s);
+								checkList.add(ChatColor.DARK_RED + s + ChatColor.WHITE + "....." + ChatColor.GREEN + "Success");
+							}
+							else
+								checkList.add(ChatColor.DARK_RED + s + ChatColor.WHITE + "....." + ChatColor.RED + "Failed - " + ChatColor.GRAY + "Limit Reached");
 						}
 						else
 							checkList.add(ChatColor.DARK_RED + s + ChatColor.WHITE + "....." + ChatColor.RED + "Failed - " + ChatColor.GRAY + "Already added");
