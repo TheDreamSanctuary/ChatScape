@@ -1,10 +1,9 @@
-package Executors;
+package com.thedreamsanctuary.dreamtools.Executors;
 
 import org.bukkit.ChatColor;
 
+import com.thedreamsanctuary.dreamtools.configuration.Logger;
 import com.thedreamsanctuary.dreamtools.data.Info;
-
-import configuration.Logger;
 
 public class override implements Executor
 {
@@ -22,17 +21,17 @@ public class override implements Executor
 			{
 				i.setOverriding(false);
 				i.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Override is now" + ChatColor.RED + "Disabled");
-				Logger.logIt("wlToggleEnabled: " + i.getPlayer().getName(), "log");
+				Logger.logIt("OverrideEnabled: " + i.getPlayer().getName(), "log");
 			}
 			else
 			{
-				i.setGroupEnabled(true);
+				i.setOverriding(true);
 				i.getPlayer().sendMessage(ChatColor.AQUA + "Override is now " + ChatColor.GREEN + "Enabled");
-				Logger.logIt("wlToggleDisabled: " + i.getPlayer().getName(), "log");
+				Logger.logIt("OverrideDisabled: " + i.getPlayer().getName(), "log");
 			}
 		} catch (Exception e)
 		{
-			Logger.logIt("player: " + i.getPlayer().getName() + " :: " +  e.toString(), "errorLog");
+			e.printStackTrace();
 		}
 		
 	}

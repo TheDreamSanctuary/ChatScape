@@ -1,4 +1,4 @@
-package Executors;
+package com.thedreamsanctuary.dreamtools.Executors;
 
 import org.bukkit.ChatColor;
 

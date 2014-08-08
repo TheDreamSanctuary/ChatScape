@@ -9,11 +9,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.google.common.base.Preconditions;
+import com.thedreamsanctuary.dreamtools.configuration.Logger;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 import com.thedreamsanctuary.dreamtools.eventhandlers.ChatEventListener;
-
-import configuration.Logger;
 
 
 public class Public implements CommandExecutor

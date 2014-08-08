@@ -6,13 +6,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.thedreamsanctuary.dreamtools.Executors.addGroup;
+import com.thedreamsanctuary.dreamtools.Executors.gInfo;
+import com.thedreamsanctuary.dreamtools.Executors.remGroup;
+import com.thedreamsanctuary.dreamtools.Executors.toggleGroupList;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
-
-import Executors.addGroup;
-import Executors.gInfo;
-import Executors.remGroup;
-import Executors.toggleGroupList;
 
 public class GroupList implements CommandExecutor
 {

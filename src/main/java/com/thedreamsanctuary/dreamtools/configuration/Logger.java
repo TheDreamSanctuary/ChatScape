@@ -1,4 +1,4 @@
-package configuration;
+package com.thedreamsanctuary.dreamtools.configuration;
 
 import java.io.BufferedWriter;
 import java.io.File;

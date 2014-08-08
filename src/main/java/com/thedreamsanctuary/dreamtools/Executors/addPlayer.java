@@ -1,4 +1,4 @@
-package Executors;
+package com.thedreamsanctuary.dreamtools.Executors;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,10 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import com.google.common.base.Preconditions;
 import com.thedreamsanctuary.dreamtools.data.Info;
-
-import configuration.Logger;
 
 public class addPlayer implements Executor
 {

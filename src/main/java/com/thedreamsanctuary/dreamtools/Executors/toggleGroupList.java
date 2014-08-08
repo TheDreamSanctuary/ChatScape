@@ -1,9 +1,9 @@
-package Executors;
+package com.thedreamsanctuary.dreamtools.Executors;
 
 import org.bukkit.ChatColor;
-import com.thedreamsanctuary.dreamtools.data.Info;
 
-import configuration.Logger;
+import com.thedreamsanctuary.dreamtools.configuration.Logger;
+import com.thedreamsanctuary.dreamtools.data.Info;
 
 public class toggleGroupList implements Executor
 {

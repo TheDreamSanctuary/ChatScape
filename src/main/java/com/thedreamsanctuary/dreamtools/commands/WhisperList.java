@@ -1,19 +1,16 @@
 package com.thedreamsanctuary.dreamtools.commands;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import Executors.addPlayer;
-import Executors.pInfo;
-import Executors.remPlayer;
-import Executors.toggleWhisperList;
-
+import com.thedreamsanctuary.dreamtools.Executors.addPlayer;
+import com.thedreamsanctuary.dreamtools.Executors.override;
+import com.thedreamsanctuary.dreamtools.Executors.pInfo;
+import com.thedreamsanctuary.dreamtools.Executors.remPlayer;
+import com.thedreamsanctuary.dreamtools.Executors.toggleWhisperList;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
 
@@ -25,6 +22,7 @@ public class WhisperList implements CommandExecutor
 		addPlayer ap = new addPlayer();
 		remPlayer rp = new remPlayer();
 		pInfo pi = new pInfo();
+		override ovr = new override();
 		toggleWhisperList twl = new toggleWhisperList();		
 		
 		System.out.println("THE PLAYER" + i.getPlayer());
@@ -48,7 +46,7 @@ public class WhisperList implements CommandExecutor
 			}
 			else if (args[0].equalsIgnoreCase("override"))
 			{
-				
+				ovr.executor(i, args);
 			}
 		}
 		else
