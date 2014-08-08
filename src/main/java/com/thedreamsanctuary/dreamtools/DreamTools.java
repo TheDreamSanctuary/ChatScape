@@ -6,7 +6,7 @@ import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginManager;
+
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +15,7 @@ import com.thedreamsanctuary.dreamtools.commands.GroupList;
 import com.thedreamsanctuary.dreamtools.commands.Private;
 import com.thedreamsanctuary.dreamtools.commands.Public;
 import com.thedreamsanctuary.dreamtools.commands.WhisperList;
+import com.thedreamsanctuary.dreamtools.configuration.Config;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.eventhandlers.ChatEventListener;
 import com.thedreamsanctuary.dreamtools.eventhandlers.ConDiscon;
@@ -24,7 +25,8 @@ import com.thedreamsanctuary.dreamtools.eventhandlers.OnCommand;
 public class DreamTools extends JavaPlugin
 {
 	Serialize ser = new Serialize();
-	PluginManager p;
+	Config cfg = new Config();
+	//PluginManager p;
 	public static Permission perms = null;
 	public static Chat chat = null;
 	ChatEventListener cev = new ChatEventListener();
@@ -36,6 +38,7 @@ public class DreamTools extends JavaPlugin
 	  this.getLogger().log(Level.INFO, "Saving dreamIndex");	  
 	}
 	PluginDescriptionFile pdf = this.getDescription();
+	
 	@Override
 	public void onEnable()
 	{	
@@ -47,21 +50,25 @@ public class DreamTools extends JavaPlugin
 		
 		else
 		{
+			//Test
+
+			
 			//setups
 			setupPermissions();
 			getLogger().info("hooked Vault!");
-			ser.pluginData(this.getDataFolder().toString());
-			Data.setDataLoc(this.getDataFolder().toString());
-			Data.setChat(chat);
-			//Data.setVersion(pdf.getVersion());
+			//ser.pluginData(this.getDataFolder().toString());
+			getLogger().info("DATA FILE" + getDataFolder().toString());
+			Data.setDataLoc(getDataFolder().toString());
 			
 			getLogger().log(Level.INFO, "importing serialized data");
 			
 			try
 			{
-			ser.deserializeList();
+				cfg.createDefaults();
+				ser.deserializeList();
 			} catch (Exception e)
 			{
+				e.printStackTrace();
 				getLogger().log(Level.SEVERE, "Unable to import Serialized Data");
 			}
 			Data.setPerm(perms);
