@@ -18,6 +18,8 @@ import configuration.Logger;
 
 public class Public implements CommandExecutor
 {
+	static final String Public = "public";
+	
 	ChatEventListener cel = new ChatEventListener();
 	public boolean onCommand(CommandSender sender, Command cmd, String str,String[] args)
 	{
@@ -42,7 +44,11 @@ public class Public implements CommandExecutor
 					}
 				}
 				else
+				{
 					sender.sendMessage(ChatColor.RED + "You are not in private mode!");
+					Logger.logIt(cmd.toString() + " :: " + sender.getName() + " :: " + "Failed", Logger.playerInfo());
+				}
+				
 		} catch (Exception e)
 		{
 			e.printStackTrace();

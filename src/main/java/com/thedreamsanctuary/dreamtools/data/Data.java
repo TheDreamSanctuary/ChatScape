@@ -1,6 +1,5 @@
 package com.thedreamsanctuary.dreamtools.data;
-
-import java.io.Serializable;
+ 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,10 +11,10 @@ import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-public class Data implements Serializable {
+public class Data
+{
 
 	private String serVer = "1.0";
-	private static final long serialVersionUID = 1L;
 	private static Map<String, Info> pInfo = new HashMap<String, Info>();
 	private static String DataLoc;
 	private static Chat chat;
@@ -41,17 +40,26 @@ public class Data implements Serializable {
 		return pInfo;
 	}
 
-	public static Info getInfo(Player sender) {
+	public static Info getInfo(Player sender) 
+	{
 		String playerName = ((Player) sender).getName();
-		if (!pInfo.containsKey(playerName)) {
+		if (!pInfo.containsKey(playerName)) 
+		{
+			Info ia = new Info();
+			//Defaulted
+			ia.setPlayer(sender);
 			//Creates the new player profile and also adds them to their own whisperlist
 			pInfo.put(((Player) sender).getName(), new Info());
 			Info i = Data.getInfo(sender);
-			i.getWhisperList().add((Player) sender);
-		} else {
+			i.getWhisperList().add(sender.getName());
+			i.setPlayer((Player) sender);
+		} 
+		else 
+		{
 			return pInfo.get(playerName);
 		}
-		for (Entry<String, Info> entry : pInfo.entrySet()) {
+		for (Entry<String, Info> entry : pInfo.entrySet())
+		{
 			if (entry.getKey().equals(playerName))
 				return (entry.getValue());
 		}

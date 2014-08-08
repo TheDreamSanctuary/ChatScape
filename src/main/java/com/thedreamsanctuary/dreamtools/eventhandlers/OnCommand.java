@@ -70,7 +70,7 @@ public class OnCommand implements Listener
 				Info i = Data.getInfo(recipient);
 				if (!i.isWhisperEnabled())
 				{
-					if (i.getWhisperList().contains(event.getPlayer()))
+					if (i.getWhisperList().contains(event.getPlayer().getName()))
 					{
 						recipient.sendMessage(event.getMessage());
 					}
@@ -90,7 +90,7 @@ public class OnCommand implements Listener
 			Info i = Data.getInfo(p); 
 			if (!i.isChatEnabled())
 			{
-				if (i.getWhisperList().contains(event.getPlayer()))
+				if (i.getWhisperList().contains(event.getPlayer().getName()))
 				{
 					 p.sendMessage(event.getMessage());
 				}

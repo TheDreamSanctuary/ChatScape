@@ -6,22 +6,23 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.google.common.base.Preconditions;
 import com.thedreamsanctuary.dreamtools.data.Data;
 import com.thedreamsanctuary.dreamtools.data.Info;
+import com.thedreamsanctuary.dreamtools.data.MessageWriter;
 
 import configuration.Logger;
 
 public class Private implements CommandExecutor
 {
+	static final String className = "Private";
+
 	public boolean onCommand(CommandSender sender, Command cmd, String str,String[] args)
 	{
-
+		@SuppressWarnings("unused")
+		String limitArg = " ";
 		try
-		{
-			Info i= Data.getInfo((Player) sender);
-			i.setPlayerName((Player) sender);
-			Preconditions.checkArgument(sender instanceof Player);
+		{			
+			Info i = Data.getInfo((Player) sender);
 			if (args.length > 2)
 			{
 				sender.sendMessage(ChatColor.RED + "Error too many arguements!");
@@ -33,43 +34,43 @@ public class Private implements CommandExecutor
 				{
 					//handles the variables  you can choose
 					Logger.logIt("private : + " + sender.getName(), "log");
-					i.setChatEnabled(false);
 					
 					//handles the variables  you can choose
-					System.out.println("args +++++ " + args[0]);
-					if (!args[0].isEmpty())
+					//System.out.println("args +++++ " + args[0]);
+					if (args.length > 0)
 					{
+						limitArg = args[0];
 						//Vanish All
-						if (args[0].equalsIgnoreCase("-vl"))
+						if (args[0].equalsIgnoreCase("vl"))
 						{
-							sender.sendMessage(ChatColor.AQUA + "You have gone into private mode + Vanished All non whisperlisted");
+							
+						}
+						if (args[0].equalsIgnoreCase("sa"))
+						{
+							i.setArgs(args[0]);
+							//MessageWriter.modeStatus(this.getClass().getName(), (Player) sender, null, cmd.getName(), args[0]);
 							for (Player p : Data.nonWL((Player) sender))
 							{
-								i.getPlayerName().hidePlayer(p);
-								p.hidePlayer(i.getPlayerName());
+								i.getPlayer().showPlayer(p);
 							}
 						}
-						if (args[0].equalsIgnoreCase("-sa"))
+						if (args[0].equalsIgnoreCase("info"))
 						{
-							sender.sendMessage(ChatColor.AQUA + "You have gone into private mode + Show All Players");
-							for (Player p : Data.nonWL((Player) sender))
-							{
-								i.getPlayerName().showPlayer(p);
-							}
+							MessageWriter.modeStatus((Player) sender);
 						}
-						else
-							sender.sendMessage(ChatColor.AQUA + "You have gone into private mode");
+						
 					}
-					//removes the player from the list who are not on the whisper lists
-					for (Player p : Data.nonWL((Player) sender))
+					else
 					{
-						p.hidePlayer((Player) sender);
+						i.setChatEnabled(false);
 					}
+					MessageWriter.modeStatus((Player) sender);
 				}
 				else
 				{
-					sender.sendMessage(ChatColor.RED + "You are already running in private mode");
-				}						
+					sender.sendMessage(ChatColor.RED + "you are already running in private mode");
+				}
+				
 			}
 		
 		} catch (Exception e)
