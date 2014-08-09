@@ -1,5 +1,5 @@
-name: DreamTools
-main: com.thedreamsanctuary.dreamtools.DreamTools
+name: ChatScape
+main: com.thedreamsanctuary.chatscape.ChatScape
 version: ${project.version}
 author: xRezel
 depend: [Vault]
