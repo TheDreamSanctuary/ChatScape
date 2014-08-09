@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 import com.thedreamsanctuary.chatscape.config.Logger;
 import com.thedreamsanctuary.chatscape.data.Info;
 
-public class toggleWhisperList implements Executor
+public class ToggleWhisperList implements Executor
 {
 
 	public String Name() {
@@ -38,7 +38,7 @@ public class toggleWhisperList implements Executor
 
 	public String permNode() {
 		// TODO Auto-generated method stub
-		return "dreamTools.toggleWhisper";
+		return "chatScape.toggleWhisper";
 	}
 
 }

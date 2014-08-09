@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 import com.thedreamsanctuary.chatscape.data.Data;
 import com.thedreamsanctuary.chatscape.data.Info;
 
-public class remGroup implements Executor
+public class RemGroup implements Executor
 {
 
 	public String Name() {
@@ -53,7 +53,7 @@ public class remGroup implements Executor
 
 	public String permNode() {
 		// TODO Auto-generated method stub
-		return "dreamTools.remGroup";
+		return "chatscape.remgroup";
 	}
 
 }

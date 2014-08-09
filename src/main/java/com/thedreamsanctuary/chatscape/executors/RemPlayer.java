@@ -12,7 +12,7 @@ import com.google.common.base.Preconditions;
 import com.thedreamsanctuary.chatscape.config.Logger;
 import com.thedreamsanctuary.chatscape.data.Info;
 
-public class remPlayer implements Executor
+public class RemPlayer implements Executor
 {
 	
 	public String Name() {

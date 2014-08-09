@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 import com.thedreamsanctuary.chatscape.config.Logger;
 import com.thedreamsanctuary.chatscape.data.Info;
 
-public class toggleGroupList implements Executor
+public class ToggleGroupList implements Executor
 {
 
 	public String Name() {
@@ -38,7 +38,7 @@ public class toggleGroupList implements Executor
 
 	public String permNode() {
 		// TODO Auto-generated method stub
-		return "dreamTools.ToggleGroup";
+		return "chatScape.ToggleGroup";
 	}
 
 }
